@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 @RestController
 public class ProductoController {
 
-    @Autowired
-    private Environment env; // Para inyectar el Feing el valor del puerto
+    //@Autowired
+    //private Environment env; // Para inyectar el Feing el valor del puerto
 
     @Value("${server.port}")
     private Integer port; // Para inyectar en RestTemplate el valor del puerto
@@ -34,18 +34,36 @@ public class ProductoController {
     public List<Producto> listar(){
         // Obtenemos el listado de productos y asignamos el puerto
         return productoService.findAll().stream().map(prod -> {
-            // prod.setPort(Integer.parseInt(env.getProperty("local.server.port"))); --> Para usar con Feing
+            //prod.setPort(Integer.parseInt(env.getProperty("local.server.port"))); //--> Para usar con Feing
             prod.setPort(port); // Para usar con RestTemplate
             return prod;
         }).collect(Collectors.toList());
     }
 
     @GetMapping("/listar/{id}")
-    public Producto findProducto(@PathVariable Long id){
+    public Producto findProducto(@PathVariable Long id) throws Exception {
         // Obtenemos el listado de productos y asignamos el puerto
         Producto producto = productoService.findById(id);
-        //producto.setPort(Integer.parseInt(env.getProperty("local.server.port"))); --> Para usar con Feing
+        //producto.setPort(Integer.parseInt(env.getProperty("local.server.port"))); //--> Para usar con Feing
         producto.setPort(port); // Para usar con RestTemplate
+
+        /*
+        // Simulamos un error para ver el funcionamiento de Hystrix
+        boolean ok = false;
+        if(!ok){
+            throw new Exception("No se pudo cargar el producto");
+        }
+        */
+
+        /*
+        // Simulamos un timeout de 5 segundos
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        */
+
 
         return producto;
     }
