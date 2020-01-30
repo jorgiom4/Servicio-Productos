@@ -63,8 +63,6 @@ public class ProductoController {
             e.printStackTrace();
         }
         */
-
-
         return producto;
     }
 
