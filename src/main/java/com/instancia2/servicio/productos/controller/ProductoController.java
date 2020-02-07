@@ -1,6 +1,7 @@
 package com.instancia2.servicio.productos.controller;
 
-import com.instancia2.servicio.productos.model.entity.Producto;
+// import com.instancia2.servicio.productos.model.entity.Producto; --> Lo quitamos por usar el de commons
+import com.instancia2.servicio.commons.model.Producto;
 import com.instancia2.servicio.productos.model.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

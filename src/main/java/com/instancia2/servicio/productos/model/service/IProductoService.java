@@ -1,6 +1,8 @@
 package com.instancia2.servicio.productos.model.service;
 
-import com.instancia2.servicio.productos.model.entity.Producto;
+//import com.instancia2.servicio.productos.model.entity.Producto; --> Lo quitamos por usar el de commons
+import com.instancia2.servicio.commons.model.Producto;
+
 import java.util.List;
 
 public interface IProductoService {

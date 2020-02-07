@@ -4,9 +4,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/** !!!!!!!!!
+ * Esta clase entidad ya no se usa al estar usando la que hay definida en el servicio commons
+ * !!!!!!!!!
+ */
+
 @Entity
 @Table(name = "productos")
-public class Producto implements Serializable {
+public class ProductoAll implements Serializable {
 
     private static final long serialVersionUID = 1234567890134567892L;
 
